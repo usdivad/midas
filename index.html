@@ -1,0 +1,250 @@
+﻿
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>MIDaS: Mobile-Music Instrument Designer and Stage</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+	  
+	 <meta property="og:image" content="images/thumb.jpg">
+	 <img height="0" src="images/thumb.jpg">
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+	   
+    .slides article   { background-image:none !important; background-color:white;}
+	
+	div.center:before {
+		content:"
+		
+		
+		
+		";
+	}
+	div.center {
+		margin-left: auto;
+		margin-right:auto;
+		margin-top:auto;
+		margin-bottom:auto;
+		text-align: center;
+		padding-top:250px;
+	}
+	
+	span.arrow {
+	
+		color = #2EA4FF;
+	
+	}
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <!--<article class='biglogo'>
+      </article>-->
+
+      <article>
+        <h1>
+          MIDaS: Mobile-Music Instrument Designer and Stage
+        </h1><br>
+        <p>
+          David Su
+          <br>
+		  <a>http://www.columbia.edu/~dds2135/midas</a>
+		  <br>
+          DevFest 2013
+        </p>
+		<p style="font-size:20px"><a href="demo.html">play the demo</a> or <a href="http://youtu.be/h5cI-56ureo">watch the demo video</a>!</p>
+      </article>
+      
+	  <article>
+	          <p>
+          <img src='images/datatomusic.jpg'>
+        </p>
+	  </article>
+	  
+	  
+      <article>
+        <h3>
+          Musical parameters
+        </h3>
+        
+		<ul>
+          <li>
+              Rhythm (includes BPM, note duration)
+           
+          <li>
+              Melody/harmony (encompasses pitch, scale, motif)
+			
+          <li>
+              Timbre (synthesis, EQ, filters, ADSR)
+       
+          <li>
+              Audio effects (such as reverb, distortion, ring modulation)
+            
+          <li>
+            Texture (how many voices? how do they interact musically?)
+      </ul>
+	  </article>
+	  
+	  <article>
+	  <h3>Extramusical parameters</h3>
+	  <ul>
+	  			<li>
+              Device acceleration (x, y, z), and hence velocity and distance
+			  
+			   <li>
+              Device orientation (alpha, beta, gamma)
+			  
+			       <li>
+              Device geolocation (latitude, longitude)
+			  
+			  <li>
+              Touch events and gestures
+			 
+			 <li>
+			               External parameters (e.g. time of day, weather season, proximity to other active devices, song database metadata, Foursquare check-in data, online friends list from Facebook graph API)			  
+	</ul>		
+	</article>
+	
+
+		  <article>
+			<h3>Why mobile?</h3>
+	          <p><center>
+          <img src='images/mobileanything.jpg'></center>
+        </p>
+	  </article>
+	
+	  		  <article>
+			  	<h3>Mapping</h3>
+	          <p><center>
+          <img src='images/mapping2.jpg'></center>
+        </p>
+	  </article>
+	  
+	  <article>
+	  <h3>Why web-based?</h3>
+	  <ul class="build">
+	  <li>Uses Web Audio API for sound generation, no need for external .mp3 files; &lt; 50KB!
+	  <li>All real-time synthesis and processing done in-browser, no need to contact server after initial load of instrument settings
+	  <li>Easy to save, share, access
+	  </ul>
+	  </article>
+	  
+	  <article>
+	  <h3>Community</h3>
+	  <p>
+	  <ul class="build">
+		<li><b>Builders</b> can share their instruments with others
+		<li><b>Composers</b> can write pieces for specific instruments and ensemble configurations
+		<li><b>Performers</b> can play with pre-made instruments, modify existing instruments, commission pieces for repertoire
+		<li>... and of course, all content providers can choose their pricing scheme
+		<li><b>Users</b> function as all of the above
+		</ul>
+	</article>
+	
+	<article>
+	<h3>Rethinking the music experience</h3>
+	<div class="center">Composer <span style="color: #2EA4FF;">-----></span> Performer <span style="color: #2EA4FF;">---</span>(instrument)<span style="color: #2EA4FF;">--></span> Audience</div>
+	</article>
+	
+	<article>
+	<h3>Rethinking the music experience</h3>
+	<div class="center">User <span style="color: #2EA4FF;"><b>=</b></span> Composer <span style="color: #2EA4FF;">+</span> Performer <span style="color: #2EA4FF;">+</span> Audience
+	</article>
+	
+	<article>
+	<h2>Live Demo!</h2>
+	<p style="padding-top:530px"><a href="demo.html">http://www.columbia.edu/~dds2135/midas/demo.html</a><br>
+	<a href="http://youtu.be/h5cI-56ureo">http://youtu.be/h5cI-56ureo</a></p>
+	</article>
+	
+	<article>
+	<h3>Preset 0</h3>
+	<ul>
+	<li>simple sine wave
+	<li>alpha &lt;--&gt; frequency
+	</ul>
+	<br>
+	<!--<iframe id="player" type="text/html" src="http://youtu.be/h5cI-56ureo"></iframe>-->
+	<center><object width="480" height="360"><param name="movie" value="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0" type="application/x-shockwave-flash" width="480" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></center>
+	</article>
+	
+	<article>
+	<h3>Preset 1</h3>
+	<ul>
+	<li>simple sine wave
+	<li>alpha &lt;--&gt; melodic motion along pentatonic scale
+	</ul>
+	<br>
+	<center><object width="480" height="360"><param name="movie" value="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=21"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=21" type="application/x-shockwave-flash" width="480" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></center>
+	</article>
+	
+	<article>
+	<h3>Preset 2</h3>
+	<ul>
+	<li>simple sine wave + sawtooth wave + custom wave
+	<li>alpha, beta, gamma &lt;--&gt; melodic motion along pentatonic scale for respective oscillators
+	</ul>
+	<br>
+	<center><object width="480" height="360"><param name="movie" value="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=46"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=46" type="application/x-shockwave-flash" width="480" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></center>
+	</article>
+	
+	<article>
+	<h3>Preset 3</h3>
+	<ul>
+	<li>simple sine wave + sawtooth wave + custom wave
+	<li>algorithmically generated melodies based on the first three voices of <i>Contrapunctus I</i> from J.S. Bach's <u>The Art of Fugue</u> BWV 1080
+	<li>alpha &lt;--&gt; tempo
+	</ul>
+	</article>
+	
+	<article>
+	<h3>Preset 3</h3>
+	<p style="padding-top:20px;">
+	<img src='images/bach2.jpg'></p>
+	<br>
+	<center>
+	<object width="320" height="240"><param name="movie" value="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=76"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/h5cI-56ureo?hl=en_US&amp;version=3&amp;rel=0&start=76" type="application/x-shockwave-flash" width="480" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></center>
+	</article>
+
+
+	<article>
+	<p>
+	Thank you!<br><br>
+	David Su<br>
+	<a>dds2135@columbia.edu</a><br>
+	<!--<a>http://www.columbia.edu/~dds2135/mmim/</a>-->
+	</p>
+	<br><br><br><Br>
+	Special thanks to Ian Marsanyi for his help in the early stages of development.
+	</article>
+
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>MIDaS demo</title>
+<h1>MIDaS demo</h1>
+<i>for <a href="http://www.adicu.com/devfest">devfest 2013</a>; see <a href="index.html">presentation</a> or <a href="http://youtu.be/h5cI-56ureo">video</a> for more info</i><br>
+<link rel="stylesheet" href="style.css">
+	 <meta property="og:image" content="images/thumb.jpg">
+	 <img height="0" src="images/thumb.jpg">
+</head>
+
+<body>
+<div class="warning">
+<b>NOTE:</b> This demo uses the DeviceOrientation and Web Audio APIs, which means it currently only works on iOS 6 and higher.
+</div>
+<br>
+<div class="text">
+<b>AUDIO PLAYBACK</b><br>
+<input type="Button" class="button" style="font:'Tahoma', sans-serif; font-size:20px; height: 30px; width: 200px" value="touch to play" onClick="play();"><br>
+<input type="Button"  style="margin:4px; height: 30px; width: 200px" value="pause" onClick="pause();">
+<!--<div id="freq_display">freq: </div>-->
+</div>
+<br>
+<div class="text">
+<b>PICK PRESET</b><br>
+<input type="Button"  style="margin:4px; height: 30px; width: 60px" value="preset 0" onClick="setPreset0();"><br>
+<input type="Button"  style="margin:4px; height: 30px; width: 60px" value="preset 1" onClick="setPreset1();"><br>
+<input type="Button"  style="margin:4px; height: 30px; width: 60px" value="preset 2" onClick="setPreset2();"><br>
+<input type="Button"  style="margin:4px; height: 30px; width: 60px" value="preset 3" onClick="setPreset3();"><br>
+<!--<input type="Button"  style="margin:4px; height: 30px; width: 60px" value="preset 4" onClick="setPreset4();">-->
+</div>
+<!--
+<div class="text">
+<b>geolocation</b><br>
+<div id="latitude_display">latitude: unavailable</div>
+<div id="longitude_display">longitude: unavailable</div>
+
+<div id="num_watches"></div>
+</div>
+<br>
+<div class="text">
+<b>position (relative)</b><br>
+<div id="px_display">px: unavailable</div>
+<div id="py_display">py: unavailable</div>
+<div id="pz_display">pz: unavailable</div>
+</div>
+<br>
+<div class="text">
+<b>distance</b><br>
+<div id="dx_display">dx: unavailable</div>
+<div id="dy_display">dy: unavailable</div>
+<div id="dz_display">dz: unavailable</div><br>
+<b>velocity</b><br>
+<div id="vx_display">vx: unavailable</div>
+<div id="vy_display">vy: unavailable</div>
+<div id="vz_display">vz: unavailable</div><br>
+<b>acceleration</b><br>
+<div id="ax_display">ax: unavailable</div>
+<div id="ay_display">ay: unavailable</div>
+<div id="az_display">az: unavailable</div>
+<div id="axg_display">axg: unavailable</div>
+<div id="ayg_display">ayg: unavailable</div>
+<div id="azg_display">azg: unavailable</div>
+<div id="highest_ax_display">highest ax: 0</div>
+<div id="interval_display">interval: unavailable</div>
+<div id="rotationRate">rotation rate: unavailable</div>
+</div>
+<br>
+<div class="text">
+<b>orientation</b><br>
+<div id="alpha_pos_display">alpha_pos: 0</div>
+<div id="alpha_0_display">alpha_0: 0</div>
+<br>
+<div id="alpha_display">alpha: unavailable</div>
+<div id="beta_display">beta: unavailable</div>
+<div id="gamma_display">gamma: unavailable</div>
+<div id="num_rotations"></div>
+</div>
+
+<br><br>
+alpha controls basic filtering and rate<br>
+beta controls melodic guide tones (A7sus4-ey vs. Fmaj9-ish)<br>
+gamma controls crossfade level (between the two synths)<br><br>
+-->
+<br>
+<div class="text">
+<div style="font-size:13px">
+See <a href="index.html#12">slides</a> for preset settings used.<br><br>
+Check the <a href="test_params.html">parameter tester</a> to see what's available on your device.</div>
+</div>
+
+
+<br><br>
+David Su 2013
+
+<script type="text/javascript" charset="UTF-8" src="audio.js">
+</script>
+<script type="text/javascript" charset="UTF-8" src="params.js"></script>
+
+<script type="text/javascript">
+
+setPreset0()
+
+
+getDeviceOrientation()
+getDeviceMotion()
+getLocation()
+
+function addFontStyle() {
+  var el = document.createElement('link');
+  el.rel = 'stylesheet';
+  el.type = 'text/css';
+  el.href = 'http://fonts.googleapis.com/css?family=' +
+            'Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono';
+
+  document.body.appendChild(el);
+};
+
+addFontStyle()
+
+</script>
+</body>
+</html>
