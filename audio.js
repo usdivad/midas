@@ -1,4 +1,3 @@
-
 /**CONTEXT**/
 //create an AudioContext
 var context;
@@ -114,7 +113,7 @@ function playTone(oscillator, freq)
 		setReverb(oscillator);
 		setGain(oscillator);
 		*/
-		
+		oscillator.frequency.value = freq;
 		if (oscillator.playbackState == 0) {
 			oscillator.noteOn(0);
 		}
