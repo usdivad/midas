@@ -1,9 +1,9 @@
-﻿
+
 /**CONTEXT**/
 //create an AudioContext
 var context;
-var beats_per_minute = 144
-var tempo_multiplier = 1
+var beats_per_minute = 144;
+var tempo_multiplier = 1;
 
 try
 {
@@ -27,6 +27,8 @@ catch(e)
 //var melody2 = [45,45]
 
 //context-wide vars
+
+/**MASTER GAIN**/
 var masterVolume = context.createGainNode();
 masterVolume.gain.value=1;
 masterVolume.connect(context.destination);
@@ -42,17 +44,13 @@ var eq1 = context.createBiquadFilter();
 
 osc1.type = 0;
 eq1.type = 0;
-g1.gain.value = 0.35
+g1.gain.value = 0.35;
 osc1.connect(eq1);
 eq1.connect(g1);
 g1.connect(masterVolume);
 //osc1.connect(context.destination);
 
-/*
-osc1.connect(eq1);
-eq1.connect(g1);
-g1.connect(context.destination);
-*/
+
 
 /**osc2**/
 //osc2: imagine multiplying two waves, thus 2a 2b etc.
@@ -62,7 +60,7 @@ var g2 = context.createGainNode();
 var r2 = context.createConvolver();
 var eq2 = context.createBiquadFilter();
 eq2.type = 1;
-g2.gain.value = 0.15
+g2.gain.value = 0.15;
 
 osc2.type = 2;
 //osc2b.type = 2;
@@ -83,7 +81,7 @@ var eq3 = context.createBiquadFilter();
 
 osc3.type = 2;
 eq3.type = 0;
-g3.gain.value = 0.35
+g3.gain.value = 0.35;
 osc3.connect(eq3);
 eq3.connect(g3);
 g3.connect(masterVolume);
@@ -100,11 +98,12 @@ function MIDItoHz(midi)
 }
 
 //play a single frequency w/ sine wave. use stopTone() to shut it up
-//RIGHT NOW IT'S CONSTANT, NO BREAK BTWEEN NOTES
+//RIGHT NOW IT'S CONSTANT, NO BREAK BETWEEN NOTES
 function playTone(oscillator, freq)
 {	
 	//oscillator.noteOn && oscillator.noteOn(1);
 	//oscillator.noteOff(0);
+	
 	if (freq != 0 && freq != oscillator.frequency.value)
 	{
 		//oscillator = context.createOscillator();
@@ -116,17 +115,30 @@ function playTone(oscillator, freq)
 		setGain(oscillator);
 		*/
 		
-		//are these gain things actually doing anything?
-		//g1.gain.value = 0
-		oscillator.frequency.value = freq;
-		//g1.gain.value = 0.5
-		oscillator.noteOn(0);
+		if (oscillator.playbackState == 0) {
+			oscillator.noteOn(0);
+		}
+		
+		//uncomment the below to give discrete break between notes
+		/*
+		g1.gain.value = 0
+		console.log("gain off");
+		oscillator.frequency.value = freq
+		
+		if (oscillator.playbackState == 0)
+			oscillator.noteOn(0)
+			
+		setTimeout(function(){g1.gain.value = 0.5; console.log("gain up");}, 100)
+		*/
 		
 		//console.log(freq);
 	}
+	
+
 }
 
 //if you abstract it like this you need to connect it to eq1, or eq2, etc... depending on which....
+//also better to work via masterVolume, right? well, you have to choose between keeping these oscillators just going w/ 0 volume or having them actually stop + reinitialize (like they do now)
 function stopTone(oscillator) {
 	oscillator.noteOff(0);
 	oscillator = context.createOscillator();
@@ -153,15 +165,19 @@ function stopAll() {
 //play a single note as part of the blossom, then recursively pick&play next note
 function playNote(oscillator, melody, BPM)
 {
-	var pitch = melody1[Math.floor(Math.random()*melody1.length)];
+	//var pitch = melody1[Math.floor(Math.random()*melody1.length)]
+	var pitch = melody[Math.floor(Math.random()*melody.length)];
+
 	//var bpm = Number(BPM);
 	var bpm = tempo_multiplier*BPM; //tempo actually is "multiplier"
 	var freq;
 	//console.log("Playing note (" + note.pitch + ", " + note.rhythm + ")");
-	if (pitch != 0)
+	if (pitch != 0) {
 		freq = (440 / 32) * (Math.pow(2,((pitch - 9) / 12)));
-	else
+	}
+	else {
 		freq = 0; //rest
+	}
 	var beat = (60/bpm) * 1000; //in ms
 	//var duration = Math.floor(Math.random()*2 + 1) * beat;
 	var duration = 2*beat;
