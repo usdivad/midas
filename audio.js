@@ -28,7 +28,7 @@ catch(e)
 //context-wide vars
 
 /**MASTER GAIN**/
-var masterVolume = context.createGainNode();
+var masterVolume = context.createGain();
 masterVolume.gain.value=1;
 masterVolume.connect(context.destination);
 
@@ -36,7 +36,7 @@ masterVolume.connect(context.destination);
 
 /**osc1**/
 var osc1 = context.createOscillator();
-var g1 = context.createGainNode();
+var g1 = context.createGain();
 var r1 = context.createConvolver();
 var eq1 = context.createBiquadFilter();
 //var wavetype = "square"; //again, shapes can change wavetype
@@ -55,7 +55,7 @@ g1.connect(masterVolume);
 //osc2: imagine multiplying two waves, thus 2a 2b etc.
 var osc2 = context.createOscillator();
 //var osc2b = context.createOscillator(); //trying to combine to make richer sound
-var g2 = context.createGainNode();
+var g2 = context.createGain();
 var r2 = context.createConvolver();
 var eq2 = context.createBiquadFilter();
 eq2.type = 1;
@@ -73,7 +73,7 @@ g2.connect(masterVolume);
 
 /**osc3**/
 var osc3 = context.createOscillator();
-var g3 = context.createGainNode();
+var g3 = context.createGain();
 var r3 = context.createConvolver();
 var eq3 = context.createBiquadFilter();
 //var wavetype = "square"; //again, shapes can change wavetype
